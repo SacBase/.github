@@ -1,0 +1,23 @@
+
+name: Basic SaC Workflow
+
+on:
+  workflow_dispatch: # run from webUI
+  schedule:
+    # run once a week at 4:05 Wed.
+    - cron: '5 4 * * 3'
+
+jobs:
+  Does_It_Build:
+    container: sacbase/sac-compiler:41ed2a07
+    steps:
+      - name: Get HEAD and submodules
+        uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+      - name: Configure
+        run: |
+          cmake -S . -B ./build
+      - name: Build
+        run: |
+          cmake --build ./build -j2

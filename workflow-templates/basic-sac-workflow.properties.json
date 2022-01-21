@@ -1,0 +1,10 @@
+{
+    "name": "Basic SaC Workflow",
+    "description": "SaC project starter workflow.",
+    "categories": [
+        "SaC"
+    ],
+    "filePatterns": [
+        "^CMakeLists.txt"
+    ]
+}
